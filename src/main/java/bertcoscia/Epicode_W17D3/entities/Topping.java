@@ -15,5 +15,8 @@ public class Topping extends Item {
         this.name = name;
     }
 
-    public String toString() { return name + calories + price; }
+    @Override
+    public String toString() { return name + " " + calories + " kcal, $" + price;}
+
+
 }

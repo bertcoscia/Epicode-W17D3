@@ -44,6 +44,6 @@ public class Pizza extends Item {
         if (!toppingsBuilder.isEmpty()) {
             toppingsBuilder.setLength(toppingsBuilder.length() - 2);
         }
-        return name + " (" + toppingsBuilder + ") " + calories + " kcal, €" + price;
+        return name + " (" + toppingsBuilder + ") " + calories + " kcal, $" + price;
     }
 }

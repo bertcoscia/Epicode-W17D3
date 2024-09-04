@@ -18,7 +18,23 @@ public class Menu {
     private List<Topping> toppings;
     private List<Drink> drinks;
 
-    @Override
+    public void printMenu() {
+        System.out.println("******* Menu *******");
+        System.out.println("PIZZAS");
+        this.pizzas.forEach(System.out::println);
+        System.out.println();
+
+        System.out.println("TOPPINGS");
+        this.toppings.forEach(System.out::println);
+        System.out.println();
+
+        System.out.println("DRINKS");
+        this.drinks.forEach(System.out::println);
+        System.out.println();
+
+    }
+
+    /*@Override
     public String toString() {
         String header = String.format("%-30s %-10s %s", "Name", "Calories", "Price");
         String separator = "-".repeat(header.length());
@@ -53,5 +69,5 @@ public class Menu {
                 "Pizzas:\n" + pizzasStr + "\n\n" +
                 "Toppings:\n" + toppingsStr + "\n\n" +
                 "Drinks:\n" + drinksStr;
-    }
+    }*/
 }

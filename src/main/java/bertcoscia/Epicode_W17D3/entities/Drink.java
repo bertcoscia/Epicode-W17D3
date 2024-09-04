@@ -12,5 +12,5 @@ public class Drink extends Item {
     }
 
     @Override
-    public String toString() { return name + calories + price;}
+    public String toString() { return name + " " + calories + " kcal, $" + price;}
 }
