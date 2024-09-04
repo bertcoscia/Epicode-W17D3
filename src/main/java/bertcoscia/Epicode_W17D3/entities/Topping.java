@@ -1,15 +1,19 @@
 package bertcoscia.Epicode_W17D3.entities;
 import lombok.*;
 
-@NoArgsConstructor
-@AllArgsConstructor
+import java.util.Timer;
+
+
 @Setter
 @Getter
 @ToString
-public class Topping {
+public class Topping extends Item {
     private String name;
-    private int calories;
-    private double price;
+
+    public Topping(String name, int calories, double price) {
+        super(calories, price);
+        this.name = name;
+    }
 
     public String toString() { return name + calories + price; }
 }

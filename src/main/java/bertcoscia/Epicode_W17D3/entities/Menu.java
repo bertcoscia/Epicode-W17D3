@@ -3,6 +3,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Setter
 @Getter
-
+@Component
 public class Menu {
     private List<Pizza> pizzas;
     private List<Topping> toppings;

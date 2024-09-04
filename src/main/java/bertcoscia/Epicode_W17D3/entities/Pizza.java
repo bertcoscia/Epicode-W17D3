@@ -7,25 +7,32 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@NoArgsConstructor
 @Getter
 @Setter
-public class Pizza {
+public class Pizza extends Item {
     private String name;
-    private List<Topping> toppings;
-    private int calories;
-    private double price;
+    private List<Topping> toppingList;
+    private boolean isXl = false;
 
-    public Pizza(String name, int calories, double price, Topping... toppings) {
+    public Pizza(String name, List<Topping> toppingList, boolean isXl) {
+        super(700, 4.3);
         this.name = name;
-        this.calories = calories;
-        this.price = price;
-        this.toppings = new ArrayList<>();
-        Collections.addAll(this.toppings, toppings);
+        this.toppingList = toppingList;
+        this.isXl = isXl;
     }
 
+    /*@Override
+    public int getCalories() {
+        return super.getCalories() + this.getToppingList().stream().mapToInt(Topping::getCalories).sum();
+    }
+
+    @Override
+    public double getPrice() {
+        return super.getPrice() + this.getToppingList().stream().mapToDouble(Topping::getPrice).sum();
+    }*/
+
     public void addTopping(Topping topping) {
-        this.toppings.add(topping);
+        this.getToppingList().add(topping);
         this.setCalories(this.calories + topping.getCalories());
         this.setPrice(this.price + topping.getPrice());
     }
@@ -33,7 +40,7 @@ public class Pizza {
     @Override
     public String toString() {
         StringBuilder toppingsBuilder = new StringBuilder();
-        this.toppings.forEach(topping -> toppingsBuilder.append(topping.getName()).append(", "));
+        this.toppingList.forEach(topping -> toppingsBuilder.append(topping.getName()).append(", "));
         if (!toppingsBuilder.isEmpty()) {
             toppingsBuilder.setLength(toppingsBuilder.length() - 2);
         }
